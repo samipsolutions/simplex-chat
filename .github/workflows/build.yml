@@ -44,21 +44,25 @@ jobs:
     name: build-${{ matrix.os }}
     if: always()
     needs: prepare-release
-    runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.builder }}
     strategy:
       fail-fast: false
       matrix:
         include:
-          - os: ubuntu-20.04
-            cache_path: ~/.cabal/store
-            asset_name: simplex-chat-ubuntu-20_04-x86-64
           - os: ubuntu-22.04
+            builder: buildjet-8vcpu-ubuntu-2204-arm
+            cache_path: ~/.cabal/store
+            asset_name: simplex-chat-ubuntu-22_04-aarch64
+          - os: ubuntu-22.04
+            builder: buildjet-8vcpu-ubuntu-2204
             cache_path: ~/.cabal/store
             asset_name: simplex-chat-ubuntu-22_04-x86-64
           - os: macos-latest
+            builder: macos-latest
             cache_path: ~/.cabal/store
             asset_name: simplex-chat-macos-x86-64
           - os: windows-latest
+            builder: windows-latest
             cache_path: C:/cabal
             asset_name: simplex-chat-windows-x86-64
     steps:
