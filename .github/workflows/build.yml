@@ -50,11 +50,11 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - os: ubuntu-22.04
-            builder: buildjet-8vcpu-ubuntu-2204-arm
+          - os: ubuntu-20.04
+            builder: buildjet-8vcpu-ubuntu-2004-arm
             cache_path: ~/.cabal/store
-            asset_name: simplex-chat-ubuntu-22_04-aarch64
-          - os: ubuntu-22.04
+            asset_name: simplex-chat-ubuntu-20_04-aarch64
+          - os: ubuntu-20.04
             builder: buildjet-8vcpu-ubuntu-2204
             cache_path: ~/.cabal/store
             asset_name: simplex-chat-ubuntu-22_04-x86-64
